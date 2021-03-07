@@ -53,78 +53,81 @@ const Post = () => {
             </div>
           </div>
 
-          {state.posts.map((post, index) => {
-            return (
-              <div className="card" key={index}>
-                <div className="forimage">
-                  <img
-                    className="d-flex mr-3"
-                    src={user}
-                    alt="Generic placeholder image"
-                    style={{
-                      position: "absolute",
-                      left: "8px",
-                      top: "15px",
-                      width: "5%",
-                    }}
-                  />
-                  <div className="card-body" key={post.id}>
-                    <h6 className="card-subtitle text-muted">
-                      Rohan Sinha, Web Developer, Amazon
-                    </h6>
-                    <p
-                      className="card-subtitle mb-2 text-muted lead text-black-50"
-                      style={{ fontSize: "15px", marginTop: "1px" }}
-                    >
-                      Posted on {post.date}
-                    </p>
-                    <h4 className="card-title">{post.title}</h4>
-                    <h6 className="" style={{ color: "#12B0E8" }}>
-                      {post.role}, {post.skills}, {post.company}
-                    </h6>
-                    <p className="card-text">{post.exp}</p>
-                    <BiLike
-                      style={{ marginRight: "20px", marginBottom: "20px" }}
-                    />
-                    <BiDislike
-                      style={{ marginRight: "20px", marginBottom: "20px" }}
-                    />
-                    <div
+          {state.posts
+            .slice(0)
+            .reverse()
+            .map((post, index) => {
+              return (
+                <div className="card" key={index}>
+                  <div className="forimage">
+                    <img
+                      className="d-flex mr-3"
+                      src={user}
+                      alt="Generic placeholder image"
                       style={{
-                        paddingTop: "7px",
-                        paddingBottom: "7px",
-                        backgroundColor: "#f0f0f0",
-                        borderRadius: "5px",
-                        marginBottom: "10px",
+                        position: "absolute",
+                        left: "8px",
+                        top: "15px",
+                        width: "5%",
                       }}
-                    >
-                      <div style={{ maxWidth: "98%", margin: "auto" }}>
-                        <div className="input-group">
-                          <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Add your comment"
-                            onChange={(e) => setComment(e.target.value)}
-                          />
+                    />
+                    <div className="card-body" key={post.id}>
+                      <h6 className="card-subtitle text-muted">
+                        Rohan Sinha, Web Developer, Amazon
+                      </h6>
+                      <p
+                        className="card-subtitle mb-2 text-muted lead text-black-50"
+                        style={{ fontSize: "15px", marginTop: "1px" }}
+                      >
+                        Posted on {post.date}
+                      </p>
+                      <h4 className="card-title">{post.title}</h4>
+                      <h6 className="" style={{ color: "#12B0E8" }}>
+                        {post.role}, {post.skills}, {post.company}
+                      </h6>
+                      <p className="card-text">{post.exp}</p>
+                      <BiLike
+                        style={{ marginRight: "20px", marginBottom: "20px" }}
+                      />
+                      <BiDislike
+                        style={{ marginRight: "20px", marginBottom: "20px" }}
+                      />
+                      <div
+                        style={{
+                          paddingTop: "7px",
+                          paddingBottom: "7px",
+                          backgroundColor: "#f0f0f0",
+                          borderRadius: "5px",
+                          marginBottom: "10px",
+                        }}
+                      >
+                        <div style={{ maxWidth: "98%", margin: "auto" }}>
+                          <div className="input-group">
+                            <input
+                              type="text"
+                              className="form-control"
+                              placeholder="Add your comment"
+                              onChange={(e) => setComment(e.target.value)}
+                            />
 
-                          <div className="input-group-append">
-                            <button
-                              className="btn btn-primary"
-                              type="button"
-                              onClick={() => addComment(post.id)}
-                            >
-                              Add Comment
-                            </button>
+                            <div className="input-group-append">
+                              <button
+                                className="btn btn-primary"
+                                type="button"
+                                onClick={() => addComment(post.id)}
+                              >
+                                Add Comment
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
+                      <Comments id={post.id} />
                     </div>
-                    <Comments id={post.id} />
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
           <br />
         </div>
         <RelatedPosts />
