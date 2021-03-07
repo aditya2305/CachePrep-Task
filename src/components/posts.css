@@ -1,0 +1,32 @@
+.card {
+  max-width: 700px;
+  margin: auto;
+  text-align: start;
+}
+
+.alignment {
+  display: flex;
+}
+
+.postsection {
+  width: 700px;
+  margin-left: 16rem;
+}
+
+.relatedPosts {
+  max-width: 600px;
+  margin-left: 3rem;
+}
+
+.expandrelate {
+  width: 300px;
+}
+
+.forimage {
+  padding-left: 4.5%;
+}
+
+.shareexp:hover {
+  background-color: #f7f7f7;
+  transition: ease-in;
+}
